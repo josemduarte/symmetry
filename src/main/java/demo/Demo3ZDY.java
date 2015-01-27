@@ -32,13 +32,13 @@ import org.biojava.bio.structure.align.gui.jmol.StructureAlignmentJmol;
 import org.biojava.bio.structure.align.util.AtomCache;
 import org.biojava.bio.structure.io.FileParsingParameters;
 import org.biojava3.structure.StructureIO;
-import org.biojava3.structure.quaternary.analysis.CalcBioAssemblySymmetry;
+import org.biojava3.structure.quaternary.core.CalcBioAssemblySymmetry;
 import org.biojava3.structure.quaternary.core.QuatSymmetryDetector;
 import org.biojava3.structure.quaternary.core.QuatSymmetryParameters;
 import org.biojava3.structure.quaternary.core.QuatSymmetryResults;
 import org.biojava3.structure.quaternary.core.RotationAxisAligner;
-import org.biojava3.structure.quaternary.jmolScript.JmolSymmetryScriptGenerator;
-import org.biojava3.structure.quaternary.jmolScript.JmolSymmetryScriptGeneratorPointGroup;
+import org.biojava3.structure.quaternary.gui.jmolScript.JmolSymmetryScriptGenerator;
+import org.biojava3.structure.quaternary.gui.jmolScript.JmolSymmetryScriptGeneratorPointGroup;
 
 public class Demo3ZDY {
 
@@ -136,7 +136,7 @@ public class Demo3ZDY {
 
 		QuatSymmetryParameters parameters = new QuatSymmetryParameters();
 
-		parameters.setVerbose(true);
+		//parameters.setVerbose(true);
 
 
 		CalcBioAssemblySymmetry calc = new CalcBioAssemblySymmetry(s, parameters);
@@ -144,6 +144,7 @@ public class Demo3ZDY {
 		return calc;
 	}
 
+	@SuppressWarnings("unused")
 	private static String getGlobalPseudoSymmetry(
 			QuatSymmetryDetector detector, QuatSymmetryParameters parameters) {
 
@@ -155,7 +156,7 @@ public class Demo3ZDY {
 		for (List<QuatSymmetryResults> globalSymmetryL : globalSymmetries) {
 
 			for (QuatSymmetryResults globalSymmetry : globalSymmetryL){
-				if (parameters.isVerbose()) {
+				//if (parameters.isVerbose()) {
 					System.out.println();
 					//System.out.println("Results for " + Math.round(parameters.getSequenceIdentityThreshold()*100) + "% sequence identity threshold:");
 					System.out.println();
@@ -164,7 +165,7 @@ public class Demo3ZDY {
 					System.out.println("Pseudostoichiometry : " + globalSymmetry.getSubunits().isPseudoStoichiometric());
 					System.out.println("Point group         : " + globalSymmetry.getRotationGroup().getPointGroup());				
 					System.out.println("Symmetry RMSD       : " + (float) globalSymmetry.getScores().getRmsd());
-				}
+				//}
 
 				RotationAxisAligner axisTransformation = new RotationAxisAligner(globalSymmetry);
 

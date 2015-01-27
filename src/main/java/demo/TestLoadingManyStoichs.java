@@ -38,9 +38,8 @@ import java.util.List;
 import org.biojava.bio.structure.Structure;
 import org.biojava.bio.structure.align.util.AtomCache;
 import org.biojava.bio.structure.io.FileParsingParameters;
-import org.biojava.bio.structure.io.PDBFileReader;
 import org.biojava3.structure.StructureIO;
-import org.biojava3.structure.quaternary.analysis.CalcBioAssemblySymmetry;
+import org.biojava3.structure.quaternary.core.CalcBioAssemblySymmetry;
 import org.biojava3.structure.quaternary.core.QuatSymmetryDetector;
 import org.biojava3.structure.quaternary.core.QuatSymmetryParameters;
 
@@ -122,7 +121,7 @@ public class TestLoadingManyStoichs {
 
 	private static String analyzeSymmetry(Structure s,String pdbID, int biolAssemblyNr, double threshold) {
         QuatSymmetryParameters parameters = new QuatSymmetryParameters();
-	    parameters.setVerbose(false);
+	    //parameters.setVerbose(false);
 
 		CalcBioAssemblySymmetry calc = new CalcBioAssemblySymmetry(s, parameters);
 		QuatSymmetryDetector detector = calc.orient();
@@ -130,7 +129,7 @@ public class TestLoadingManyStoichs {
 
 		String symmetry = null;
 		if ( hasProtein) {
-			symmetry = calc.getRotationGroup().getPointGroup().toString();
+			symmetry = calc.getSymmetry();
 		}
 
 		return symmetry;

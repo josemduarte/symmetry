@@ -1,4 +1,4 @@
-package org.biojava3.structure.quaternary.analysis;
+package org.biojava3.structure.quaternary.misc;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.biojava.bio.structure.PDBCrystallographicInfo;
-import org.biojava.bio.structure.PDBHeader;
+//import org.biojava.bio.structure.PDBHeader;
 import org.biojava.bio.structure.Structure;
 import org.biojava.bio.structure.StructureException;
 import org.biojava.bio.structure.align.util.AtomCache;
@@ -23,7 +23,6 @@ import org.biojava3.structure.quaternary.core.QuatSymmetryDetector;
 import org.biojava3.structure.quaternary.core.QuatSymmetryParameters;
 import org.biojava3.structure.quaternary.core.QuatSymmetryResults;
 import org.biojava3.structure.quaternary.core.Subunits;
-import org.biojava3.structure.quaternary.misc.ProteinComplexSignature;
 import org.biojava3.structure.quaternary.utils.BlastClustReader;
 
 public class ScanSymmetry implements Runnable {
@@ -121,14 +120,14 @@ public class ScanSymmetry implements Runnable {
 
 				try {
 					SpaceGroup spaceGroup =null;
-					float resolution = 0.0f;
+					//float resolution = 0.0f;
 					if (structure != null) {
 						PDBCrystallographicInfo info = structure.getCrystallographicInfo();
 						if (info != null) {
 							spaceGroup = info.getSpaceGroup();
 						}
-						PDBHeader pdbHeader = structure.getPDBHeader();
-						resolution = pdbHeader.getResolution();	
+						//PDBHeader pdbHeader = structure.getPDBHeader();
+						//resolution = pdbHeader.getResolution();	
 					}
 					QuatSymmetryDetector detector = new QuatSymmetryDetector(structure, parameters);
 

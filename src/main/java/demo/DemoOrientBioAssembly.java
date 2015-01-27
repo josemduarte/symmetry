@@ -33,16 +33,14 @@ import org.biojava.bio.structure.StructureException;
 import org.biojava.bio.structure.align.gui.jmol.StructureAlignmentJmol;
 import org.biojava.bio.structure.align.util.AtomCache;
 import org.biojava.bio.structure.io.FileParsingParameters;
-import org.biojava.bio.structure.io.PDBFileReader;
 import org.biojava3.structure.StructureIO;
-import org.biojava3.structure.quaternary.analysis.CalcBioAssemblySymmetry;
+import org.biojava3.structure.quaternary.core.CalcBioAssemblySymmetry;
 import org.biojava3.structure.quaternary.core.AxisAligner;
-import org.biojava3.structure.quaternary.core.RotationAxisAligner;
 import org.biojava3.structure.quaternary.core.QuatSymmetryDetector;
 import org.biojava3.structure.quaternary.core.QuatSymmetryParameters;
 import org.biojava3.structure.quaternary.core.QuatSymmetryResults;
-import org.biojava3.structure.quaternary.jmolScript.JmolSymmetryScriptGenerator;
-import org.biojava3.structure.quaternary.jmolScript.JmolSymmetryScriptGeneratorPointGroup;
+import org.biojava3.structure.quaternary.gui.jmolScript.JmolSymmetryScriptGenerator;
+import org.biojava3.structure.quaternary.gui.jmolScript.JmolSymmetryScriptGeneratorPointGroup;
 
 public class DemoOrientBioAssembly {
 
@@ -104,7 +102,7 @@ public class DemoOrientBioAssembly {
 
 		QuatSymmetryParameters parameters = new QuatSymmetryParameters();
         parameters.setOnTheFly(true);
-		parameters.setVerbose(true);
+		//parameters.setVerbose(true);
 
 
 		CalcBioAssemblySymmetry calc = new CalcBioAssemblySymmetry(s, parameters);
